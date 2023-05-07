@@ -12,6 +12,8 @@ dist
 dist-ssr
 *.local
 .cache
+components.d.ts
+auto-imports.d.ts
 
 # Editor directories and files
 !.vscode/extensions.json
