@@ -1,6 +1,7 @@
+<!-- eslint-disable no-undef -->
 <script setup lang="ts">
 import { message } from 'ant-design-vue';
-
+console.log(__APP_ENV__);
 const info = () => {
   message.info('This is a normal message');
 };
