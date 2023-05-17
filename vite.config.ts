@@ -48,7 +48,7 @@ export default defineConfig(({ command, mode }) => {
     config.plugins.push(
       viteMockServe({
         mockPath: './src/mock',
-        enable: true,
+        localEnabled: true,
       }),
     );
   } else {

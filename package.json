@@ -19,6 +19,7 @@
     "mock": "vite --mode mock"
   },
   "dependencies": {
+    "@vue/runtime-core": "^3.3.2",
     "@vueuse/core": "^10.1.2",
     "ant-design-vue": "^3.2.20",
     "pinia": "^2.0.36",

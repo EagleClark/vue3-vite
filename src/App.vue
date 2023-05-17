@@ -3,7 +3,7 @@ import { message } from 'ant-design-vue';
 import zhCN from 'ant-design-vue/es/locale/zh_CN';
 import { Theme, changeTheme, currentTheme } from './theme';
 import { changeLang, Language } from '@locale/index';
-import { useFetch } from '@vueuse/core';
+import { getUser } from './api';
 // import dayjs from 'dayjs';
 // import 'dayjs/locale/zh-cn';
 // dayjs.locale('zh-cn');
@@ -24,17 +24,29 @@ const info4 = () => {
   changeLang(Language.ZH);
 };
 
-useFetch('/api/one');
+const { isFetching, data, execute } = getUser();
+</script>
+
+<script lang="ts">
+export default { name: 'UserCard' };
 </script>
 
 <template>
   <a-config-provider :locale="locale">
+    <a-radio-group @change="info4"></a-radio-group>
     <a-button type="primary" @click="info">{{ $t('common.confirm') }}</a-button>
     <a-button type="primary" @click="info2">{{ $t('common.confirm') }}</a-button>
     <a-button type="primary" @click="info3">{{ $t('common.confirm') }}</a-button>
     <a-button type="primary" @click="info4">{{ $t('common.confirm') }}</a-button>
+    <a-button type="primary" @click="() => execute()">{{ 'test' }}</a-button>
     <div class="test">{{ 'Hello World' }}</div>
     <p>{{ currentTheme }}</p>
+    <div v-if="isFetching">{{ 'loading' }}</div>
+    <div v-else>
+      <p>{{ data.name }}</p>
+      <p>{{ data.age }}</p>
+      <p>{{ data.email }}</p>
+    </div>
     <RouterView></RouterView>
   </a-config-provider>
 </template>
