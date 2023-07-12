@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import MyBtns from './btns.vue';
 import { message } from 'ant-design-vue';
 import zhCN from 'ant-design-vue/es/locale/zh_CN';
 import { Theme, changeTheme, currentTheme } from './theme';
@@ -34,6 +35,8 @@ export default { name: 'UserCard' };
 <template>
   <a-config-provider :locale="locale">
     <a-radio-group @change="info4"></a-radio-group>
+    <my-btns />
+    <a-button type="primary">{{ 'btn4' }}</a-button>
     <a-button type="primary" @click="info">{{ $t('common.confirm') }}</a-button>
     <a-button type="primary" @click="info2">{{ $t('common.confirm') }}</a-button>
     <a-button type="primary" @click="info3">{{ $t('common.confirm') }}</a-button>
@@ -52,6 +55,14 @@ export default { name: 'UserCard' };
 </template>
 
 <style scoped lang="less">
+:deep(.ant-btn) {
+  color: orange;
+}
+
+.ant-btn {
+  color: orange;
+}
+
 .test {
   color: var(--primary-color);
 }
